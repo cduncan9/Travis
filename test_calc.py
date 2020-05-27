@@ -1,10 +1,14 @@
 # test_calc
 
 
-def test_add():
+import pytest
+
+
+@pytest.mark.parametrize("add_1, add_2, expected",
+                         [(1, 2, 3), (2, 2, 4), (3, 3, 6)])
+def test_add(add_1, add_2, expected):
     from calc import add
-    answer = add(4, 5)
-    expected = 9
+    answer = add(add_1, add_2)
     assert answer == expected
 
 
